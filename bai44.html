@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Input: “Hello World”
+        //kiểm tra xem tần suất xuất hiện của mỗi ký tự và in ra chúng
+            //ký tự h xuất hiện 1 lần
+            //ký tự e xuất hiện 1 lần
+            //......................
+        function toString(string) {
+            let stringArray = string.toLowerCase().split('');
+            let stringArraySort = stringArray.sort();
+            let count = 1;
+            for (let i = 0; i < stringArraySort.length; i++) {
+                if(stringArraySort[i] == stringArraySort[i+1]){
+                    count++;
+                }
+                else{
+                    console.log(`Ký tự ${stringArraySort[i]} xuất hiện ${count} lần`);
+                    count=1;
+                }           
+            }
+        }
+        toString("Hello World")
+
+
+
+        //C2
+        let arr1 = [1,5,8,1,1,1,51,1,1,1];
+            console.log(arr1);
+            let result = new Set(arr1);
+            let newResult = [...result];   //[1,5,8,51]
+            console.log(newResult);   //[1,5,8,51]
+            for(let i = 0; i < newResult.length; i++){
+                let count = 0;
+                for(let j = 0; j < arr1.length; j++){
+                    if(newResult[i] == arr1[j]){
+                        count++;
+                    }
+                }
+                console.log(`ký tự ${newResult[i]} xuất hiện ${count} lần`);
+            }
+
+    
+    </script>
+</body>
+</html>

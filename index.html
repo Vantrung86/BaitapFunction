@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        1.Hàm là:là khối lệnh gồm các câu lệnh, hàm thực thi 1 chức năng duy nhất
+            hàm có thể tái sử dụng
+        2.Cách khai báo hàm và các loại hàm hay dùng, cách thực thi
+            2.1 declaration: hàm bình thường
+                function name(){
+
+                }
+                Muốn hàm thực thi phải gọi hàm call: name();
+                hàm bình thường thì gọi hàm trước hoặc sau đều được
+                name: tên function đặt theo quy tắc camel-case
+            2.2 expression function
+                gán funcion cho 1 biến
+                    let result = function name() {
+
+                    }
+                gọi hàm: result()
+                trường hợp này phải gọi hàm sau khi khai báo
+                có thể bỏ: name
+            2.3 arrow function
+                hàm mũi tên
+                Khai báo:
+                let result = () => {
+
+                }
+                gọi hàm: result()
+
+                Trường hợp này cú pháp gọn gàng, bắt buộc phải gọi hàm sau khi khai báo
+                    không có context (liên quan đến từ khoá this)
+        3.return trong hàm              (break:dùng trong vòng lặp)
+            -Dùng để dừng hàm
+            -Kết quả trả về của hàm 
+        4.tham số, đối số trong hàm
+            -tham số(params): nhận về
+            -argument(đối số): giá trị truyền vào
+        5.Phạm vi của biến
+            -Quan tâm vị trí khai báo
+                +Nếu khai báo ở global ở đâu dùng cũng đc
+                +Nếu let, const khai báo ở block-scope thì phạm vi chỉ trong khối đó
+                +Nếu var khai báo trong function thì phạm vi chỉ trong function đó
+                +khi var khai báo trong function thì var hoisting sẽ đưa lên đâù function đó
+        6.Đệ quy
+            Hàm được gọi lại chính nó
+        7.callback
+            -là hàm được truyền làm đối số của hàm khác
+            - 1 trong những cách để xử lý bất đồng bộ
+    -->
+
+    <script>
+        // let result =  function name() {  
+        //    let tong = 0;
+        //    for(let i=0; i<5; i++){
+        //         tong+=i
+        //    }
+        //    return tong;
+        // }
+        // console.log("tong", result());
+      
+
+
+        // function tinhtong(a,b) {  
+        //    let tong = 0;
+        //    for(let i=a; i<b; i++){
+        //         tong+=i
+        //    }
+        //    return tong;
+        // }
+        // console.log(tinhtong(1,5));
+
+
+        // function deQuy(a){
+        //     if(a==1) return 1;
+        //     return a+deQuy(--a)
+        //     //5+ deQuy(4)
+        //     //5+ 4+ deQuy(3)
+        //     //5+ 4+ 3+ deQuy(2)
+        // }
+        // console.log(deQuy(5));     //kq=15
+
+
+        // function getData(callback){
+
+        //     setTimeout(() => {
+        //         let data = 123;
+        //         callback(data)
+        //     }, 3000);
+
+        // }
+        // function showData(data){
+        //     console.log(`co ${data} di hien thi`);
+        // }
+        // getData(showData)
+
+
+    //    /* Bài kiểm tra từ đối xứng */;
+    //    let text=prompt("mời bạn nhập chuỗi bất kì");
+    //     function check(params) {
+    //         let result=text.split("").reverse().join("");
+    //         if(result==text){
+    //             return true;
+    //         }
+    //         return false;
+    //     }
+    //     if(check()){
+    //         console.log("là chuỗi đỐi xứng");
+    //     }else{
+    //         console.log("không phải chuỗi đối xứng");
+    //     }
+
+
+    //   let string = prompt("Nhập vào chuỗi");
+    //   console.log(string);
+    //   function checkData(str) {
+    //         let a = str.split("").reverse().join("");
+    //         if(a === str){
+    //             return console.log("chuỗi đối xứng");
+    //         }else{
+    //             return console.log(" không đối xứng");
+    //         }
+    //   }
+    //   checkData(string)
+
+
+
+    // let string = prompt("Nhập vào chuỗi");
+    // function check(params) {
+    //     for(let i=0; i<string.length; i++){
+    //         if(string[i] != string[string.length - i - 1]){
+    //             console.log("ko phai doi xung");
+    //             return
+    //         }
+    //     }
+    //     console.log("la doi xung.");
+    // }
+    // check(string);
+
+
+
+        // let string = prompt("Nhap chuoi");
+        // console.log(string);
+        // let arr = string.trim().split(" ");
+        // console.log(arr);
+        // for (let i = 0; i < arr.length; i++) {
+        //     arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1).toLowerCase();
+        // }
+        // console.log(arr.join(" "));
+
+
+        let str = "bui            van           trung";
+        console.log(str);
+        let arr = str.split("");
+        console.log(arr);
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == arr[i+1] && arr[i] == " "){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+        console.log(arr.join("")); //kq: bui van trung
+
+
+
+        // const string1 = 'this is A tEst';
+        // const array = string1.trim().split(/\s+/);
+        // for(let i = 0; i < array.length; i++) {
+        //     let isString = array[i];
+        //     let isStringUpperCase = isString.charAt(0).toUpperCase() + isString.slice(1).toLowerCase();
+        //     array[i] = isStringUpperCase; 
+        // }
+        // let output = array.join(' ');
+        // console.log(output);
+
+
+            //callback
+        // let sdt;
+        // function xinsdt(callback) {
+        //     console.log("thuan goi cho An xin so dt a trung");
+        //     setTimeout(() => {
+        //         sdt=45123121;
+        //         callback(sdt)
+        //     },3000);
+        // }
+        // function goiDien(phone) {
+        //     console.log(`co so ${phone} di goi cho a trung`);
+        // }
+        // xinsdt(goiDien)
+
+
+            let arr1 = [1,5,8,1,1,1,51,1,1,1];
+            console.log(arr1);
+            let result = new Set(arr1);
+            let newResult = [...result];    //[1,5,8,51]
+            console.log(newResult);         //[1,5,8,51]
+            for(let i = 0; i < newResult.length; i++){
+                let count = 0;
+                for(let j = 0; j < arr1.length; j++){
+                    if(newResult[i] == arr1[j]){
+                        count++;
+                    }
+                }
+                console.log(`ký tự ${newResult[i]} xuất hiện ${count} lần`);
+            }
+        
+
+
+            let string = "Hello Word";
+            let a = string.split("");
+            console.log(a);
+            let b = new Set(a);
+            console.log(b);
+            let c = [...b];
+            console.log(c);
+
+    </script>
+</body>
+</html>

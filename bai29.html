@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ. 
+        // kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+        // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1
+        
+        function checkString(arr, text) {
+            if(arr.indexOf(text) != -1){
+                let count = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    if(text == arr[i]){
+                        count++;
+                    }                   
+                }
+                return console.log(`${text} xuất hiện trong mảng ${count} lần`);
+            }
+            return console.log(-1);;
+        }
+        checkString(["1","t","d","h","t","a","6","t"], "t");
+
+    </script>
+</body>
+</html>

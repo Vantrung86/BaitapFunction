@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //kiểm tra xem số người dùng nhập vào có phải là số nguyên tố hay không?
+        function isPrime(number) {
+            if(number < 2){
+                return `${number} không phải số nguyên tố`;
+            }else if(number == 2){
+                return `${number} là số nguyên tố`;
+            }else{
+                for (let i = 2; i < number; i++) {
+                    if(number % 2 === 0){
+                        return `${number} không phải số nguyên tố`;
+                    }else{
+                        return `${number} là số nguyên tố`;
+                    }
+                    
+                }
+            }
+        }
+        console.log(isPrime(7));
+    </script>
+</body>
+</html>

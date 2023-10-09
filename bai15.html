@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Nhập vào ngôi sao, tìm chòm sao tương ứng
+        let starName =['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let conterLationStar = [ 'Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+        function findStars(name) {
+            let indexStar = starName.indexOf(name);
+            if(indexStar == -1){
+                return 'Không có ngôi sao nào như bạn nhập';
+            }
+            return conterLationStar[indexStar];    
+        }
+        let nameStar = prompt('Xin nhập ngôi sao')
+        console.log(findStars(nameStar));
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Truyền vào mảng số nguyên sau đó đảo ngược mảng
+        function reverse(arr) {
+            arr.reverse();
+            return arr;
+        }
+        let arr1 = [3,1,5,9];
+        console.log("Mảng ban đầu:",arr1);
+        console.log("Mảng sau khi đảo ngược:",reverse(arr1));
+
+        //Dùng unshift()
+        function name(arr) {
+            let a = [];
+            for (let i = 0; i < arr.length; i++) {
+                a.unshift(arr[i])        
+            }
+            return a;
+        }
+        let b = [1,2,3,4,5,6,7];
+        console.log("Mảng ban đầu:",b);
+        console.log("Mảng sau khi đảo ngược:",reverse(b));
+    </script>
+</body>
+</html>

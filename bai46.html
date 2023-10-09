@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Cho người dùng nhập vào chuỗi số bất kì. 
+        //Viết hàm sắp xếp chuỗi số đó từ bé đến lớn
+        function sort(arr) {
+            let a = arr.split("");
+            for (let i = 0; i < a.length; i++) {
+                for (let j = 0; j < a.length; j++) {
+                   if(+a[j] > +a[j+1]){
+                    let x = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = x;
+                   }                   
+                }              
+            }
+            return a.join("");
+        }
+        let string = "954720";
+        console.log("Chuỗi ban đầu là:", string);
+        console.log("Chuỗi sắp xếp từ bé đến lớn:",sort(string));
+    </script>
+</body>
+</html>
